@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 450px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        input[type=text] {
+            width: 80%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        input[type=submit] {
+            padding: 12px 30px;
+            background-color: #00bcd4;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        input[type=submit]:hover {
+            background-color: #0097a7;
+        }
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            .container { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Price Prediction</h1>
+        <form action="/predict" method="POST">
+            <input type="text" name="ticker" placeholder="Enter Stock Symbol (e.g. AAPL, TSLA, RELIANCE.NS)" required>
+            <br>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+    <footer>Powered by Flask • LSTM • Prophet</footer>
+</body>
+</html>

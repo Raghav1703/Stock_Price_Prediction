@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ ticker }} Stock Prediction</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 40px auto;
+            max-width: 1000px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #00e5ff;
+            letter-spacing: 1px;
+        }
+        .metrics {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .metric-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            min-width: 180px;
+        }
+        .metric-box h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        .metric-box p {
+            margin-top: 8px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #00e676;
+        }
+        h2 {
+            color: #80d8ff;
+            margin-top: 40px;
+        }
+        img {
+            width: 90%;
+            max-width: 800px;
+            margin: 15px auto;
+            display: block; /* ensures vertical stacking */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.03);
+        }
+        .back-btn {
+            display: block;
+            margin: 50px auto 20px auto; /* adds spacing below last chart */
+            background: #00bcd4;
+            padding: 12px 25px;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            width: fit-content;
+        }
+        .back-btn:hover {
+            background: #0097a7;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            .metric-box { width: 100%; margin-bottom: 15px; }
+            img { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ ticker }} Stock Analysis & Forecast</h1>
+
+        <div class="metrics">
+            <div class="metric-box">
+                <h3>Root Mean Square Error (RMSE)</h3>
+                <p>{{ rmse }}</p>
+            </div>
+            <div class="metric-box">
+                <h3>Mean Absolute Error (MAE)</h3>
+                <p>{{ mae }}</p>
+            </div>
+        </div>
+
+        <h2>Exploratory Data Analysis</h2>
+        <img src="{{ eda_img }}" alt="EDA Plot">
+        <img src="{{ ma_img }}" alt="Moving Averages">
+        <img src="{{ corr_img }}" alt="Correlation Heatmap">
+
+        <h2>LSTM Model Prediction</h2>
+        <img src="{{ lstm_img }}" alt="LSTM Plot">
+
+        <h2>Prophet Model Forecast</h2>
+        <img src="{{ prophet_img }}" alt="Prophet Plot">
+
+        <a href="/" class="back-btn">← Back to Home</a>
+
+    </div>
+</body>
+</html>
